@@ -1,13 +1,282 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand|Poppins|Carter+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap');
+
+/* style general */
+
 body {
+  background: radial-gradient(circle, rgba(251,201,142,1) 0%, rgba(135,102,193,1) 99%);
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Quicksand', sans-serif;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --white-color: #ffffff;
+  --black-color: #333030;
 }
+
+
+
+/* Header */
+header {
+  display: flex;
+  justify-content: flex-start;
+  padding: 24px;
+  position: absolute;
+  z-index: 1;
+}
+
+.headerBtn{
+  font-family: 'Poppins', sans-serif;
+  margin-left: 0;
+  display: block;
+  margin: 0 auto 20px;
+  min-width: 150px;
+  background-color: #661be6;
+  color: var( --white-color);
+  padding: 15px 32px;
+  font-size: 19px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none; 
+  text-decoration: none;
+  
+}
+
+.headerBtn:hover {
+  background-color: #884ee9;
+  cursor: pointer;
+  
+}
+
+
+
+/* Home page, Gender page,  Result Page*/
+
+/* centrer le form en milieu de page */
+.homepage {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* css concernant le formulaire */
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 100px 60px 60px;
+  width: 100%;
+  max-width: 680px;
+  margin: auto;
+  position: relative;
+}
+
+/* espacer les input */
+.form .inputBox {
+  position: relative;
+  width: 100%;
+  display: flex;
+  margin: 0 0 48px 0;
+}
+
+/* style des inputs */
+.form .inputBox input {
+  padding: 0 13px;
+  font-size: 17px;
+  color: var(--black-color);
+  font-weight: bold;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid var(--black-color);
+  outline: none;
+  transition: background 0.2s;
+  cursor: pointer;
+  width: 100%;
+  height: 52px;
+}
+
+/* style des label avant la transition */
+.form .inputBox label {
+  color: var(--black-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 17px;
+  pointer-events: none;
+  -webkit-transition: 0.25s ease-in;
+  -moz-transition: 0.25s ease-in;
+  -o-transition: 0.25s ease-in;
+  transition: 0.25s ease-in;
+}
+
+
+/* Animation lastname firstname (se décale vers le haut pour laisser place à la saisie ) */
+.form .inputBox input:focus~label,
+.form .inputBox input:valid~label {
+  top: -40px;
+  left: 0;
+  color: var(  --white-color);
+  font-size: 16px;
+}
+
+/* changement de couleur des inputs aprés saisie */
+.form .inputBox input:focus,
+.form .inputBox input:valid {
+  background: rgba(255, 255, 255, 0.39);
+  border-bottom: 1px solid var(--white-color);
+  transition: background 0.2s;
+}
+
+
+
+/* Form buttons */
+
+/* boutton recommencer dans la page result */
+.form a {
+  text-decoration: none;
+}
+
+/* etat du bouton si les inputs sont vide */
+button:disabled,
+button[disabled],
+button:disabled:hover,
+button[disabled]:hover {
+  background-color: rgba(255, 255, 255, 0.39);
+  border: none;
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* button tout le long de la navigation */
+.form button {
+  font-family: 'Poppins', sans-serif;
+  margin-left: 0;
+  display: block;
+  margin: 0 auto 20px;
+  min-width: 150px;
+  background-color: #661be6;
+  color: var( --white-color);
+  padding: 15px 32px;
+  font-size: 19px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none; 
+  text-decoration: none;
+}
+
+.form button:hover {
+  background-color: #884ee9;
+  cursor: pointer;
+}
+
+
+
+
+
+/* disposition des diférentes icones male female page accueil */
+.male, .female{
+  position: absolute;
+  top: -50px;
+}
+
+.male {
+  left: -50px;
+  transform: rotate(-20deg);
+}
+
+.female {
+  right: -50px;
+  transform: rotate(20deg);
+}
+
+div.gender-icon {
+  background: rgba(255, 255, 255, 0.39);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.gender-icon img {
+  height: 110px;
+}
+
+
+
+
+
+/* icone en fonction du resultat de l'api */
+div.gender-icon-male {
+  background: rgba(255, 255, 255, 0.39);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender-icon-male{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -50px;
+}
+div.gender-icon-male img {
+  height: 80px;
+}
+
+div.gender-icon-female {
+  background: rgba(255, 255, 255, 0.39);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender-icon-female{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -50px;
+}
+div.gender-icon-female img {
+  height: 80px;
+}
+
+div.gender-icon-error {
+  background: rgba(255, 255, 255, 0.39);
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender-icon-error{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: -50px;
+}
+
+div.gender-icon-error img {
+  height: 80px;
+}
+
+
