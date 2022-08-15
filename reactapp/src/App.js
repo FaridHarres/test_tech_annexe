@@ -1,4 +1,4 @@
-import './App.css';
+
 import Accueil from './components/Accueil';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Gender from './components/Gender';

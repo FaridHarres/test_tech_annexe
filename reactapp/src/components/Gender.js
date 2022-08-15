@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 
 
 function Gender(props) {
+
     const [Gender, setGender] = useState("...")//... afin d'eviter un input vide le temps du chargement
     const [Probability, setProbability] = useState("")
     const [Age, setAge] = useState(0)
@@ -18,7 +19,7 @@ function Gender(props) {
 
 
 
-    //initialisation des information de l'api au chargements de la page grace au info du store
+    //initialisation des informations de l'api au chargements de la page grace au info du store
     useEffect(() => {
         async function loadData() {
             const response = await fetch("/result-api", {
@@ -37,7 +38,7 @@ function Gender(props) {
 
 
 
-    //fonction qui envoi vers la page résult
+    //fonction qui envoi vers la page résult et sauvegarde dans le store.
     function submitGender() {
         props.saveResultGender(Gender)
         props.saveProba(Probability)
@@ -48,11 +49,11 @@ function Gender(props) {
     const btn = Gender === '' || Probability === '' || Age === '' ? <button disabled>en attente d'information</button> : <Link to="/result"><button onClick={() => { submitGender(Gender, Age, Probability) }}>Continuer</button></Link>
 
 
-    if(Gender === undefined){
+    if (Gender === undefined) {
         return (
             <Redirect to="/" />
         )
-    }else{
+    } else {
         if (Gender === 'male') {
             return (
                 <div>
@@ -65,7 +66,7 @@ function Gender(props) {
                     </div>
                     <div className='homepage'>
                         <div className='form'>
-                            <div class="gender-icon-male">
+                            <div className="gender-icon-male">
                                 <img src={male} alt="male"></img>
                             </div>
                             <div className='inputBox'>
@@ -87,7 +88,7 @@ function Gender(props) {
             )
         } else if (Gender === 'female') {
             return (
-    
+
                 <div>
                     <div>
                         <header>
@@ -98,7 +99,7 @@ function Gender(props) {
                     </div>
                     <div className='homepage'>
                         <div className='form'>
-    
+
                             <div className="gender-icon-female">
                                 <img src={female} alt="female"></img>
                             </div>
@@ -131,23 +132,24 @@ function Gender(props) {
                     </div>
                     <div className='homepage'>
                         <div className='form'>
-    
+
                             <div className="gender-icon-error ">
                                 <img src={error} alt="error"></img>
                             </div>
                             <div className='inputBox'>
                                 <p>Désolé aucun genre n'a été trouvé, veuillez recommencer</p>
                             </div>
+                            {/* balise <a></a> afin de vider le store */}
                             <a href='/'><button> Recommencer </button></a>
                         </div>
                     </div>
                 </div>
             )
-    
+
         }
     }
 
-    
+
 
 }
 function mapDispatchToProps(dispatch) {

@@ -31,7 +31,7 @@ function Result(props) {
                     </div>
                     <div className='homepage'>
                         <div className='form'>
-                            <div class="gender-icon-male">
+                            <div className="gender-icon-male">
                                 <img src={male} alt="male"></img>
                             </div>
                             <div className='inputBox'>
@@ -67,7 +67,7 @@ function Result(props) {
                     </div>
                     <div className='homepage'>
                         <div className='form'>
-                            <div class="gender-icon-female">
+                            <div className="gender-icon-female">
                                 <img src={female} alt="female"></img>
                             </div>
                             <div className='inputBox'>
