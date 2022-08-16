@@ -32,6 +32,8 @@ function Gender(props) {
             var resultApi = jsonResponse.dataAPI
             setGender(resultApi.gender)
             setProbability(resultApi.probability * 100)
+            //initialisation du state Age avec les infos du store, initialement à 0 
+            setAge(props.age)
         }
         loadData()
     }, [])
@@ -171,7 +173,8 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
     return {
         lastName: state.lastName,
-        firstName: state.firstName
+        firstName: state.firstName,
+        age: state.age
     }
 }
 
