@@ -22,7 +22,7 @@ function Gender(props) {
     //initialisation des informations de l'api au chargements de la page grace au info du store
     useEffect(() => {
         async function loadData() {
-            const response = await fetch("/result-api", {
+            const response = await fetch("/api/result-api", {
                 method: "POST",
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: `firstname=${props.firstName}`,
