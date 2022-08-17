@@ -3,6 +3,8 @@ var router = express.Router();
 var request = require('sync-request');
 
 
+
+
 // route interrogation de l'api
 router.post('/result-api', function(req, res, next) {
   var requete = request("GET",`https://api.genderize.io?name=${req.body.firstname}`);

@@ -48,14 +48,16 @@ function Gender(props) {
     }
 
     // activation du bouton Next quand les inputs sont diférent de vide
-    const btn = Gender === '' || Probability === '' || Age === '' ? <button disabled>en attente d'information</button> : <Link to="/result"><button onClick={() => { submitGender(Gender, Age, Probability) }}>Continuer</button></Link>
+    const btn = Gender === '' || Probability === '' || Age === '' 
+    ? <button disabled>en attente d'information</button> 
+    : <Link to="/result"><button onClick={() => { submitGender(Gender, Age, Probability) }}>Continuer</button></Link>
 
 
     if (Gender === undefined) {
         return (
             <Redirect to="/" />
         )
-    } else {
+    }else {
         if (Gender === 'male') {
             return (
                 <div>
@@ -90,7 +92,6 @@ function Gender(props) {
             )
         } else if (Gender === 'female') {
             return (
-
                 <div>
                     <div>
                         <header>
@@ -101,7 +102,6 @@ function Gender(props) {
                     </div>
                     <div className='homepage'>
                         <div className='form'>
-
                             <div className="gender-icon-female">
                                 <img src={female} alt="female"></img>
                             </div>
@@ -134,7 +134,6 @@ function Gender(props) {
                     </div>
                     <div className='homepage'>
                         <div className='form'>
-
                             <div className="gender-icon-error ">
                                 <img src={error} alt="error"></img>
                             </div>
@@ -147,13 +146,15 @@ function Gender(props) {
                     </div>
                 </div>
             )
-
         }
     }
 
 
 
 }
+
+
+//redux envoi des actions au reducers 
 function mapDispatchToProps(dispatch) {
     return {
         saveResultGender: function (gender) {
@@ -169,7 +170,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 
-
+//receptions des infos depuis le store
 function mapStateToProps(state) {
     return {
         lastName: state.lastName,
@@ -178,6 +179,7 @@ function mapStateToProps(state) {
     }
 }
 
+//Composant conteneur
 export default connect(
     mapStateToProps,
     mapDispatchToProps,

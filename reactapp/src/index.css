@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand|Poppins|Carter+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap');
 
-/* style general */
+/* **************************** style general **************************************** */
 
 body {
   background: radial-gradient(circle, rgba(251,201,142,1) 0%, rgba(135,102,193,1) 99%);
@@ -21,7 +21,7 @@ body {
 
 
 
-/* Header */
+/* ************************************* Header*********************************** */
 header {
   display: flex;
   justify-content: flex-start;
@@ -55,7 +55,7 @@ header {
 
 
 
-/* Home page, Gender page,  Result Page*/
+/* ***********************Home page, Gender page,  Result Page ********************************/
 
 /* centrer le form en milieu de page */
 .homepage {
@@ -139,7 +139,7 @@ header {
 
 
 
-/* Form buttons */
+/* ****************************************Form buttons*********************************** */
 
 /* boutton recommencer dans la page result */
 .form a {
@@ -182,6 +182,7 @@ button[disabled]:hover {
 
 
 
+/* ******************************* Icons******************************************* */
 
 /* disposition des diférentes icones male female page accueil */
 .male, .female{
@@ -214,9 +215,6 @@ div.gender-icon img {
 }
 
 
-
-
-
 /* icone en fonction du resultat de l'api */
 div.gender-icon-male {
   background: rgba(255, 255, 255, 0.39);
@@ -233,6 +231,7 @@ div.gender-icon-male {
   display: flex;
   justify-content: center;
   top: -50px;
+  
 }
 div.gender-icon-male img {
   height: 80px;

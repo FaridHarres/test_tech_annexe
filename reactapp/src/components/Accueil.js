@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 
 
 function Accueil(props) {
-    //variables d'état
+
     const [firstName, setFirstname] = useState("")
     const [lastName, setLastName] = useState("")
 
